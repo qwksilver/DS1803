@@ -78,8 +78,8 @@ void readWipers(const ADDRESS address) {
     int wiper = 0;                                                       //shows which wiper is being read.
     char c[15];                                                         //hold formatted string. 
     Wire1.requestFrom(address,2);                                      //write the value to the wiper
-    while(Wire.available()) {                                        // slave may send less than requested
-        snprintf(c,15,"wiper %d is %d",wiper++,(int)Wire.read());    //format the string before printing
+    while(Wire1.available()) {                                        // slave may send less than requested
+        snprintf(c,15,"wiper %d is %d",wiper++,(int)Wire1.read());    //format the string before printing
         Serial.println(c);                                     // print the formatted string
     }                                                         
 }
