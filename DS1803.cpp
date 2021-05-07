@@ -64,10 +64,10 @@ static int checkValidValue(const int value) {
 void setWiper(const ADDRESS address,const int wiper, const int value) {    
     if(checkValidWiper(wiper) && checkValidValue(value)) {            //if both value and wiper are valid
         char c[25];                                                  //holds string to be printed
-        Wire.beginTransmission(address);                            //begin transmiting to potentiometer at ADRESS
-        Wire.write(wiper);                                         //tell it which wiper to write to   
-        Wire.write(value);                                        //write the value to the wiper
-        Wire.endTransmission();                                  //end transmission to the DS1803
+        Wire1.beginTransmission(address);                            //begin transmiting to potentiometer at ADRESS
+        Wire1.write(wiper);                                         //tell it which wiper to write to   
+        Wire1.write(value);                                        //write the value to the wiper
+        Wire1.endTransmission();                                  //end transmission to the DS1803
         snprintf(c,25,"writing %d to wiper %#04x",value,wiper); //format the string to print
         Serial.println(c);                                     //print string to serial monitor
     }
@@ -77,7 +77,7 @@ void setWiper(const ADDRESS address,const int wiper, const int value) {
 void readWipers(const ADDRESS address) {
     int wiper = 0;                                                       //shows which wiper is being read.
     char c[15];                                                         //hold formatted string. 
-    Wire.requestFrom(address,2);                                      //write the value to the wiper
+    Wire1.requestFrom(address,2);                                      //write the value to the wiper
     while(Wire.available()) {                                        // slave may send less than requested
         snprintf(c,15,"wiper %d is %d",wiper++,(int)Wire.read());    //format the string before printing
         Serial.println(c);                                     // print the formatted string
@@ -87,5 +87,5 @@ void readWipers(const ADDRESS address) {
 //function which starts serial communication and starts i2c communication with potentiometer
 void initDS1803() {
     Serial.begin(9600);  //serial communication at 9600 baud
-    Wire.begin();       //init wire.h library and join the i2c bus
+    Wire1.begin();       //init wire.h library and join the i2c bus
 }   
