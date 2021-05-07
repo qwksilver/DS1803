@@ -22,7 +22,7 @@
 #define DS1803_H
 //-------------------------------------------- headers --------------------------------------------
 
-#include "Arduino.h"     //give access to the arduino
+#include "Heltec.h"     //give access to the esp 32
 #include <Wire.h>       //allow library to use the arduino's I2C functions
 
 //-------------------------------------------- define ---------------------------------------------
