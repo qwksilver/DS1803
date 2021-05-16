@@ -3,6 +3,8 @@
     please see 'README.txt' for more information
 
     Copyright (C) <2020>  <Chris Nichols.  github/return5>
+    Modified to run on wire1, for Esp32-Heltec by github/qwksilver
+    Run on Pins 21,22 with 2k pullup confirmed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,6 +23,8 @@
 //-------------------------------------------- headers --------------------------------------------
 
 #include "DS1803.h"     //header file for DS1803 library
+#include "Arduino.h"
+#include "heltec.h"
 
 //-------------------------------------------- prototypes -----------------------------------------
 
@@ -85,7 +89,8 @@ void readWipers(const ADDRESS address) {
 }
 
 //function which starts serial communication and starts i2c communication with potentiometer
+
 void initDS1803() {
-    Serial.begin(9600);  //serial communication at 9600 baud
-    Wire1.begin();       //init wire.h library and join the i2c bus
+    Serial.begin(115200);  //serial communication at 9600 baud
+    Wire1.begin(21, 22); //init wire.h library and join the i2c bus
 }   
