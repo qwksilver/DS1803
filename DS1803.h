@@ -3,6 +3,8 @@
     please see 'README.txt' for more information
 
     Copyright (C) <2020>  <Chris Nichols. github/return5>
+    Modified to run on wire1, for Esp32-Heltec by github/qwksilver
+    Run on Pins 21,22 with 2k pullup confirmed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,7 +24,7 @@
 #define DS1803_H
 //-------------------------------------------- headers --------------------------------------------
 
-#include "Heltec.h"     //give access to the esp 32
+#include <heltec.h>     //give access to the esp 32
 #include <Wire.h>       //allow library to use the arduino's I2C functions
 
 //-------------------------------------------- define ---------------------------------------------
