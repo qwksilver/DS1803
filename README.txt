@@ -1,5 +1,6 @@
 
 This is a library for using an arduino to communicate with an Maxim DS1803 dual digital potentiometer. 
+This version is modified to work on wire1 for use on pins 21,22 of the Heltec Esp32 with LCD, Require 2k Pullup.
 
 
 -- installation --
